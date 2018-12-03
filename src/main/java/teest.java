@@ -1,9 +1,11 @@
+import org.apache.commons.lang.StringUtils;
 import org.joda.time.DateTime;
 import org.joda.time.Days;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 
 import javax.xml.crypto.Data;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -11,6 +13,9 @@ public class teest {
     public static void main(String[] args) {
         //test1();
         //test3();
+        System.out.println(StringUtils.isBlank(" "));
+        String str=null;
+        System.out.println(StringUtils.trim(str)+"!!");
     }
 
     private static void test3() {
