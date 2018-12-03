@@ -13,6 +13,12 @@ public class teest {
     public static void main(String[] args) {
         //test1();
         //test3();
+        String[] strs={"x","xb"};
+        System.out.println(StringUtils.getCommonPrefix(strs));
+        method3();
+    }
+
+    private static void method3() {
         System.out.println(StringUtils.isBlank(" "));
         String str=null;
         System.out.println(StringUtils.trim(str)+"!!");
