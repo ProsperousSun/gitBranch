@@ -13,6 +13,7 @@ public class teest {
     public static void main(String[] args) {
         //test1();
         //test3();
+        System.out.println("method3,准备合并!");
         System.out.println(StringUtils.isBlank(" "));
         String str=null;
         System.out.println(StringUtils.trim(str)+"!!");
