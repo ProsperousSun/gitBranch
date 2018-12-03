@@ -13,6 +13,11 @@ public class teest {
     public static void main(String[] args) {
         //test1();
         //test3();
+        System.out.println("method4......");
+        method4();
+    }
+
+    private static void method4() {
         System.out.println("method3,准备合并!");
         System.out.println(StringUtils.isBlank(" "));
         String str=null;
