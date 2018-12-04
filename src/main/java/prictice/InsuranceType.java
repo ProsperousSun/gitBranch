@@ -1,8 +1,5 @@
 package prictice;
 
-
-import com.sun.xml.internal.ws.util.StringUtils;
-
 public enum InsuranceType {
     TRAIN_DELAY(0,"火车票延误险"),
     HOTEL_CANCEL(1,"酒店取消险"),
@@ -78,27 +75,6 @@ public enum InsuranceType {
     }
 
     public static void main(String[] args) {
-        Integer integer=new Integer("0");
-        if(integer==0){
-            System.out.println("yes");
-        }
 
-//        System.out.println("lll     ".trim().length());
-//        System.out.println(InsuranceType.ACCOUNT_SECURITY.toString());
-//        System.out.println(InsuranceType.ACCOUNT_SECURITY.getDesc());
-//        System.out.println(InsuranceType.ACCOUNT_SECURITY.getCode());
-//        System.out.println(InsuranceType.ACCOUNT_SECURITY.name());
-//        System.out.println(InsuranceType.ACCOUNT_SECURITY.code);
-
-
-//        System.out.println(InsuranceType.fromCode(Integer.parseInt("1")).name());
-//        String insurance = InsuranceType.fromCode(Integer.parseInt("1")).name();
-//        System.out.println(InsuranceType.fromName(insurance).getDesc());
-//        System.out.println(INTER_STANDARD_TRAVEL.getCode().toString());
-//        System.out.println("1".equals("1"));
-       // System.out.println(StringUtils.equals(InsuranceType.fromCode(Integer.parseInt("1")).name(),SINGLE_FLIGHT_TRAVEL.getDesc()));
-//        for(InsuranceType e : InsuranceType.values()){
-//            System.out.println(e.getDesc());
-//        }
     }
 }

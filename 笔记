@@ -1,0 +1,61 @@
+mysql笔记
+
+查看用户在user表中的权限
+    select * from mysql.user where user='username'\G;
+
+创建用户:
+    username自定义  ;ip :%(允许任何ip登录)自定义或127.0.0.1 ; password:自定义
+
+    create user 'username'@'ip'IDNTIFIED BY 'password'
+
+    '.' 表示对所有的数据库和数据表都有权限
+    GRANT ALL PRIVILEGES ON '.' TO 'username'@'ip' IDENTIFIED BY 'password'
+删除用户:
+    DROP USER 'username'@'ip'  在mysql中使用user和ip两列作为主键的
+用户权限的授权:
+    赋予权限:
+        databaseName.* 某个数据库下的所有数据表
+    grant insert,update,delete,select on databaseName.* to 'username'@'ip';
+    grant all privileges on *.* to 'username'@'ip' with grant option;
+    删除权限:
+    revoke insert on databaseName.* from 'username'@'ip'
+
+基本命令:
+    show create table tableName\G; 查看表的结构
+    show index from tableName\G; 查看索引
+    show session variables like '%char%'  //session 表示当前的会话值
+    show global variables like 'character_set_client' // 查看全局的值
+    //防止乱码的问题的一个简单做法是:
+    set names utf8mb4
+        确定当前客户端与MySql传输数据所有路径编码为utf8mb4
+
+-------------------------------------------------------------------------------------------
+异步复制由来
+
+Binlog,Relay Log是什么?  提交是重点
+    Binglog:开发执行的SQL语句(增删改)按照 **提交**的先后顺序在MySql内部生成的日志.
+            binlog可以用做数据回滚及异步复制时候使用
+    Relay log:是通过一部复制Master中的binlog,并生成slave的执行日志.其中内部也是按照sql的调剂的先后顺序执行的.
+
+        sql的提交和执行的区别:提交commit , 执行excute
+        (我的理解是 有比如一个回滚的事务,你应该是先 excute,感觉不符合条件,回滚,但是这个语句并没有提交上去,
+        因此,这个地方的binlog和 relaylog的日志的生成是 根据sql语句的提交的生成而生成的)
+
+异步复制原理:(传统方式)
+    主从复制的thred
+            主库:binlog dump thread
+                当从库链接主库的时候,会发送binlog event的lock,发送完(IO thread读到后)释放该event的lock
+            从库:iothread 读取主库的binlog thread,生成realy log
+                sql thread 读取relay log,并在从库上执行
+半同步由来及原理
+    半同步的原理是:使用 tcp/ip链接来消耗一部分的性能来确定,数据传输的完整,通过slave接受完binlog的日志,
+    生成relay log,并且返回ACK来让master进行commit
+
+什么是GTID
+    Global Transalation Id,全局事务Id
+        GTID=source_id:transaction_id 组成的唯一标识
+常见问题处理
+
+
+
+
