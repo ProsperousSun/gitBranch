@@ -3,16 +3,42 @@ import org.joda.time.DateTime;
 import org.joda.time.Days;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.xml.crypto.Data;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
-public class teest {
+public class Main {
     public static void main(String[] args) {
         //test1();
         //test3();
+        //method4();
+        //method5();
+//        while(true){
+//            method6();
+//            System.out.println("记性中");
+//        }
+    }
+
+    private static void method6() {
+        new Thread(()->{
+            try {
+                Thread.sleep(30000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }).start();
+    }
+
+    private static void method5() {
+        Logger logger = LoggerFactory.getLogger(Main.class);
+
+    }
+
+    private static void method4() {
         System.out.println(StringUtils.isBlank(" "));
         String str=null;
         System.out.println(StringUtils.trim(str)+"!!");
