@@ -1,8 +1,8 @@
-package sumrize.Lambda;
+package Lambda;
 
-import javax.print.attribute.HashPrintJobAttributeSet;
+import org.junit.Test;
+
 import java.util.*;
-import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 public class Demo1 {
@@ -25,6 +25,21 @@ public class Demo1 {
             if (V.equals("孙"))
             System.out.println("k:"+K+"__"+"V"+V);
         });
+    }
+
+    @Test
+    public void method5(){
+//        javaProgrammers.stream().collect()
+        Person person=new Person();
+        method6(person);
+        System.out.println(person.getAge());
+    }
+
+    public void method6(Person person){
+        Person person1=new Person();
+        person1.setAge(1);
+
+        person=person1;
     }
 
     private static void method3() {

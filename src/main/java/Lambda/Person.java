@@ -1,4 +1,4 @@
-package sumrize.Lambda;
+package Lambda;
 
 public class Person {
 
@@ -13,6 +13,9 @@ public class Person {
         this.age = age;
         this.job = job;
         this.salary = salary;
+    }
+
+    public Person() {
     }
 
     @Override
